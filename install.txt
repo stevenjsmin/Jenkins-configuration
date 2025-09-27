@@ -1,0 +1,29 @@
+sudo yum update -y
+
+
+
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+# sudo yum install -y java-17-amazon-corretto  # Jenkins LTS는 Java 11 이상 필요'
+sudo yum install -y java-17-amazon-corretto-devel --nogpgcheck
+
+/etc/profile.d/customized_env.sh
+    #export JAVA_HOME=/opt/azul/java/java
+    #export JDK_HOME=/opt/azul/java/java
+
+    export JAVA_HOME=/usr/lib/jvm/java-17-amazon-corretto.x86_64
+    export JDK_HOME=/usr/lib/jvm/java-17-amazon-corretto.x86_64
+
+
+
+java -version
+
+
+
+
+JENKINS_HOME      /var/lib/jenkins
+실행 스크립트     /usr/lib/jenkins/jenkins.war
+로그              /var/log/jenkins/jenkins.log
+설정 파일         /etc/sysconfig/jenkins
