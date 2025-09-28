@@ -3,6 +3,14 @@ sudo yum update -y
 
 
 
+
+# Port 사용체크
+lsof -i :8888
+또는
+netstat -tulpn | grep 8888
+
+
+
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 
@@ -27,3 +35,19 @@ JENKINS_HOME      /var/lib/jenkins
 실행 스크립트     /usr/lib/jenkins/jenkins.war
 로그              /var/log/jenkins/jenkins.log
 설정 파일         /etc/sysconfig/jenkins
+
+
+java.lang.RuntimeException: Fontconfig head is null, check your fonts or fonts configuration
+	at java.desktop/sun.awt.FontConfiguration.getVersion(FontConfiguration.java:1271)
+	at java.desktop/sun.awt.FontConfiguration.readFontConfigFile(FontConfiguration.java:224)
+	at java.desktop/sun.awt.FontConfiguration.init(FontConfiguration.java:106)
+	at java.desktop/sun.awt.X11FontManager.createFontConfiguration(X11FontManager.java:706)
+	at java.desktop/sun.font.SunFontManager$2.run(SunFontManager.java:358)
+	at java.desktop/sun.font.SunFontManager$2.run(SunFontManager.java:315)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:318)
+	at java.desktop/sun.font.SunFontManager.<init>(SunFontManager.java:315)
+	at java.desktop/sun.awt.FcFontManager.<init>(FcFontManager.java:35)
+	at java.desktop/sun.awt.X11FontManager.<init>(X11FontManager.java:56)
+
+
+--->
